@@ -1,5 +1,14 @@
 import streamlit as st
+from email_validator import validate_email, EmailNotValidError
 st.title("Sign Up")
+
+def email_validation(email):
+    try:
+        validate_email(email) 
+        return True
+    except EmailNotValidError as e:
+        st.error(f"Invalid email: {e}")
+        return False
 
 def save_user():
     if st.session_state.create_password != st.session_state.confirm_password:
@@ -8,6 +17,8 @@ def save_user():
     if len(st.session_state.create_password ) < 8:
         st.error("Password must be more than 8 characters in length.")
         return
+    email = st.session_state.email
+    if not email_validation(email): st.error("Invalid email format.")
     else :
         st.success("Account Created")
     

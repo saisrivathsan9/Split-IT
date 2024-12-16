@@ -1,0 +1,6 @@
+{
+    "DB_SERVER": "split-server.database.windows.net",
+    "DB_NAME": "split-DB",
+    "DB_USER": "AdminSplitDB",
+    "DB_PASSWORD": "WelcomeAdmin@123"
+}
